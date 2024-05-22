@@ -3,6 +3,9 @@ import { Project } from "../models/Project.js"
 import { api } from "./AxiosService.js"
 
 class ProjectsService {
+  setActiveProject(project) {
+    AppState.activeProject = project
+  }
   async getProfileProjects(profileId) {
     AppState.profileProjects = []
     const response = await api.get(`api/projects?creatorId=${profileId}`)
